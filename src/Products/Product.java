@@ -29,4 +29,6 @@ abstract class Product {
 	{
 		return price;
 	}
+	
+	abstract void setDimensions(String size);
 }
