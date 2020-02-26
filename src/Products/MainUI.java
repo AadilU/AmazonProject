@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
 public class MainUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtSearch;
 	private JMenu mnNewMenu;
 	private JMenuItem mntmItem1;
 	private JMenuItem mntmItem2;
@@ -64,9 +64,10 @@ public class MainUI extends JFrame {
 		mntmItem2 = new JMenuItem("Item 2");
 		mnNewMenu.add(mntmItem2);
 		
-		textField = new JTextField();
-		menuBar.add(textField);
-		textField.setColumns(10);
+		txtSearch = new JTextField();
+		txtSearch.setText("Search");
+		menuBar.add(txtSearch);
+		txtSearch.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(Color.ORANGE);
@@ -89,7 +90,7 @@ public class MainUI extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblAd = new JLabel("Ad");
-		lblAd.setBounds(146, 112, 142, 123);
+		lblAd.setBounds(159, 112, 142, 123);
 		contentPane.add(lblAd);
 		
 		JLabel lblItem = new JLabel("Ad");
