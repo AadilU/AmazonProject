@@ -14,11 +14,15 @@ import javax.swing.JButton;
 import javax.swing.BoxLayout;
 import java.awt.Button;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class MainUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JMenu mnNewMenu;
+	private JMenuItem mntmItem1;
+	private JMenuItem mntmItem2;
 
 	/**
 	 * Launch the application.
@@ -46,11 +50,22 @@ public class MainUI extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
+		mnNewMenu = new JMenu("");
+		mnNewMenu.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
+		menuBar.add(mnNewMenu);
+		
+		mntmItem1 = new JMenuItem("Item 1");
+		mnNewMenu.add(mntmItem1);
+		
+		mntmItem2 = new JMenuItem("Item 2");
+		mnNewMenu.add(mntmItem2);
+		
 		textField = new JTextField();
 		menuBar.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-24.png")));
 		menuBar.add(btnNewButton);
 		contentPane = new JPanel();
