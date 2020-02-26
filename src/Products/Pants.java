@@ -16,6 +16,6 @@ public class Pants{
 		PantsList.add(new Clothing("Adidas", false, 60, ""));
 		PantsList.add(new Clothing("Kirklands", true, 10, ""));
 		PantsList.add(new Clothing("Levis", false, 50, ""));
-		PantsList.add(new Clothing("Goodwill Pants", true, 0, ""));
+		PantsList.add(new Clothing("Goodwill Pants", true, 0, "src/Images/GWPants.JPG"));
 	}
 }
