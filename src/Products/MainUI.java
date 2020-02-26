@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 import java.awt.Button;
+import javax.swing.ImageIcon;
 
 public class MainUI extends JFrame {
 
@@ -49,7 +50,8 @@ public class MainUI extends JFrame {
 		menuBar.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("search button");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-24.png")));
 		menuBar.add(btnNewButton);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
