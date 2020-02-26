@@ -6,9 +6,9 @@ import javax.swing.ImageIcon;
 
 abstract class Product {
 	
-	private String name;
-	private boolean onSale;
-	private int price;
+	public String name;
+	public boolean onSale;
+	public int price;
 	public Image c;
 	
 	public Product(String name, boolean onSale, int price, String imagePath)

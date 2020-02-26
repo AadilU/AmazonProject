@@ -3,7 +3,7 @@ package Products;
 import java.util.LinkedList;
 
 public class Pants{
-	static LinkedList<Clothing> PantsList;
+	public LinkedList<Clothing> PantsList;
 	
 	public Pants()
 	{
