@@ -15,6 +15,8 @@ import javax.swing.BoxLayout;
 import java.awt.Button;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class MainUI extends JFrame {
 
@@ -23,6 +25,8 @@ public class MainUI extends JFrame {
 	private JMenu mnNewMenu;
 	private JMenuItem mntmItem1;
 	private JMenuItem mntmItem2;
+	private JPanel categoryExplorerPanel;
+	private JLabel lblImage;
 
 	/**
 	 * Launch the application.
@@ -71,7 +75,26 @@ public class MainUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
+		
+		categoryExplorerPanel = new JPanel();
+		categoryExplorerPanel.setBounds(5, 5, 440, 107);
+		contentPane.add(categoryExplorerPanel);
+		
+		lblImage = new JLabel("Image");
+		categoryExplorerPanel.add(lblImage);
+		
+		JLabel lblNewLabel = new JLabel("Ad");
+		lblNewLabel.setBounds(6, 112, 142, 123);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblAd = new JLabel("Ad");
+		lblAd.setBounds(146, 112, 142, 123);
+		contentPane.add(lblAd);
+		
+		JLabel lblItem = new JLabel("Ad");
+		lblItem.setHorizontalAlignment(SwingConstants.CENTER);
+		lblItem.setBounds(303, 112, 142, 123);
+		contentPane.add(lblItem);
 	}
-
 }
