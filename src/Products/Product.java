@@ -8,7 +8,7 @@ abstract class Product {
 	private boolean onSale;
 	private int price;
 	
-	public Product(String name, boolean onSale, int price)
+	public Product(String name, boolean onSale, int price, String imagePath)
 	{
 		this.name = name;
 		this.onSale = onSale;

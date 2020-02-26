@@ -3,9 +3,9 @@ package Products;
 public class Clothing extends Product{
 	private String size;
 	
-	public Clothing(String name, boolean onSale, int price)
+	public Clothing(String name, boolean onSale, int price, String imagePath)
 	{
-		super(name, onSale, price);
+		super(name, onSale, price, imagePath);
 	}
 	
 	public void setDimensions(String size)
