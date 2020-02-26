@@ -1,7 +1,7 @@
 package Products;
 
 import java.util.LinkedList;
-//
+
 public class Outerwear{
 	static LinkedList<Clothing> OuterwearList;
 	
