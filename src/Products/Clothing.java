@@ -1,7 +1,8 @@
 package Products;
 
 public class Clothing extends Product{
-	private String size;
+	public String size;
+	
 	
 	public Clothing(String name, boolean onSale, int price, String imagePath)
 	{
