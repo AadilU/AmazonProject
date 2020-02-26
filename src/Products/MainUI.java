@@ -27,6 +27,7 @@ public class MainUI extends JFrame {
 	private JMenuItem mntmItem2;
 	private JPanel categoryExplorerPanel;
 	private JLabel lblImage;
+	private JButton forwardButton;
 
 	/**
 	 * Launch the application.
@@ -71,12 +72,27 @@ public class MainUI extends JFrame {
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-24.png")));
+		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Cart");
+		btnNewButton_1.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
+		menuBar.add(btnNewButton_1);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		forwardButton = new JButton("");
+		forwardButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-arrow-right-64.png")));
+		forwardButton.setBounds(372, 5, 73, 107);
+		contentPane.add(forwardButton);
+		
+		JButton backButton = new JButton("");
+		backButton.setBackground(Color.WHITE);
+		backButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-arrow-left-64.png")));
+		backButton.setBounds(5, 5, 73, 107);
+		contentPane.add(backButton);
 		
 		categoryExplorerPanel = new JPanel();
 		categoryExplorerPanel.setBounds(5, 5, 440, 107);
