@@ -13,6 +13,4 @@ public class Clothing extends Product{
 	{
 		this.size = size;
 	}
-
-
 }
