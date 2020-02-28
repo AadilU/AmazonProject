@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JList;
+import javax.swing.JTextPane;
 
 public class Cart extends JFrame {
 
@@ -102,6 +104,10 @@ public class Cart extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(6, 41, 412, 290);
+		contentPane.add(textPane);
 		
 		
 		
