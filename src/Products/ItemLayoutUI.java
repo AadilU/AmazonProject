@@ -69,12 +69,30 @@ public class ItemLayoutUI extends JFrame {
 		
 		JMenuItem mntmShirts = new JMenuItem("Shirts");
 		mnNewMenu.add(mntmShirts);
+		mntmShirts.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                ShirtUI frame = new ShirtUI();
+                frame.setVisible(true);;
+            }
+		});
 		
 		JMenuItem mntmPants = new JMenuItem("Pants");
 		mnNewMenu.add(mntmPants);
+		mntmPants.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                PantsUI frame = new PantsUI();
+                frame.setVisible(true);;
+            }
+		});
 		
 		JMenuItem mntmOuterwear = new JMenuItem("Outerwear");
 		mnNewMenu.add(mntmOuterwear);
+		mntmOuterwear.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+                OuterwearUI frame = new OuterwearUI();
+                frame.setVisible(true);;
+            }
+		});
 		
 		
 		
