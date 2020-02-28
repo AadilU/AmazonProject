@@ -20,7 +20,7 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.UIManager;
 
-public class ProductOutlineUI extends JFrame {
+public class ShirtUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -31,7 +31,7 @@ public class ProductOutlineUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ProductOutlineUI frame = new ProductOutlineUI();
+					ShirtUI frame = new ShirtUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class ProductOutlineUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ProductOutlineUI() {
+	public ShirtUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
