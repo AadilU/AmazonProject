@@ -67,8 +67,14 @@ public class Cart extends JFrame {
 		});
 		mnNewMenu.add(mntmHome);
 		
-		JMenuItem mntmItem2 = new JMenuItem("Item 2");
-		mnNewMenu.add(mntmItem2);
+		JMenuItem mntmShirts = new JMenuItem("Shirts");
+		mnNewMenu.add(mntmShirts);
+		
+		JMenuItem mntmPants = new JMenuItem("Pants");
+		mnNewMenu.add(mntmPants);
+		
+		JMenuItem mntmOuterwear = new JMenuItem("Outerwear");
+		mnNewMenu.add(mntmOuterwear);
 		
 		
 		

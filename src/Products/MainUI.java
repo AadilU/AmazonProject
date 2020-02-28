@@ -26,10 +26,12 @@ public class MainUI extends JFrame {
 	private JTextField txtSearch;
 	private JMenu mnNewMenu;
 	private JMenuItem mntmHome;
-	private JMenuItem mntmItem2;
+	private JMenuItem mntmShirts;
 	private JPanel categoryExplorerPanel;
 	private JLabel lblImage;
 	private JButton forwardButton;
+	private JMenuItem mntmPants;
+	private JMenuItem mntmOuterwear;
 
 	/**
 	 * Launch the application.
@@ -73,8 +75,14 @@ public class MainUI extends JFrame {
             }
 		});
 		
-		mntmItem2 = new JMenuItem("Item 2");
-		mnNewMenu.add(mntmItem2);
+		mntmShirts = new JMenuItem("Shirts");
+		mnNewMenu.add(mntmShirts);
+		
+		mntmPants = new JMenuItem("Pants");
+		mnNewMenu.add(mntmPants);
+		
+		mntmOuterwear = new JMenuItem("Outerwear");
+		mnNewMenu.add(mntmOuterwear);
 		
 		txtSearch = new JTextField();
 		txtSearch.setText("Search");
