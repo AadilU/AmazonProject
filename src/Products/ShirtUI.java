@@ -122,5 +122,14 @@ public class ShirtUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
+		
+		
+		runProgram();
+	}
+
+	private void runProgram() {
+		Shirts newShirt = new Shirts();
 	}
 }

@@ -122,5 +122,13 @@ public class PantsUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
+		runProgram();
+	}
+
+	private void runProgram() {
+		Pants newPants = new Pants();
+		
 	}
 }

@@ -122,5 +122,12 @@ public class OuterwearUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		runProgram();
+	}
+
+	private void runProgram() {
+		Outerwear newOuterwear = new Outerwear();
+		
 	}
 }
