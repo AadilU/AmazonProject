@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JTextPane;
+import javax.swing.UIManager;
 
 public class Cart extends JFrame {
 
@@ -100,13 +101,13 @@ public class Cart extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(6, 41, 412, 290);
+		textPane.setBounds(6, 26, 412, 201);
 		contentPane.add(textPane);
 		
 		

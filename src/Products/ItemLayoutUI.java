@@ -15,6 +15,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.UIManager;
+import java.awt.Font;
 
 public class ItemLayoutUI extends JFrame {
 
@@ -95,10 +98,35 @@ public class ItemLayoutUI extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Image");
+		lblNewLabel.setBounds(24, 24, 256, 203);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblItemName = new JLabel("Item Name");
+		lblItemName.setFont(new Font("Kohinoor Devanagari", Font.BOLD, 15));
+		lblItemName.setBounds(292, 25, 152, 16);
+		contentPane.add(lblItemName);
+		
+		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
+		lblPrice.setBounds(292, 50, 61, 16);
+		contentPane.add(lblPrice);
+		
+		JButton btnAddToCart = new JButton("Add to Cart");
+		btnAddToCart.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnAddToCart.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-buy-26.png")));
+		btnAddToCart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAddToCart.setForeground(Color.BLACK);
+		btnAddToCart.setBackground(Color.WHITE);
+		btnAddToCart.setBounds(302, 78, 127, 38);
+		contentPane.add(btnAddToCart);
 	}
-
 }

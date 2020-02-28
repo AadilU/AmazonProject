@@ -16,6 +16,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.UIManager;
 
 public class ProductOutlineUI extends JFrame {
 
@@ -96,10 +99,14 @@ public class ProductOutlineUI extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JList list = new JList();
+		list.setBounds(438, 6, -407, 221);
+		contentPane.add(list);
 	}
 
 }
