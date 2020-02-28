@@ -22,7 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
 
-public class ShirtUI extends JFrame {
+public class OuterwearUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -33,7 +33,7 @@ public class ShirtUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ShirtUI frame = new ShirtUI();
+					OuterwearUI frame = new OuterwearUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class ShirtUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ShirtUI() {
+	public OuterwearUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
