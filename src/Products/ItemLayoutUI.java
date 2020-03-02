@@ -30,7 +30,7 @@ public class ItemLayoutUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ItemLayoutUI frame = new ItemLayoutUI("", "", 0);
+					ItemLayoutUI frame = new ItemLayoutUI("", "", 0,"");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class ItemLayoutUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ItemLayoutUI(String name, String imgSrc, int price) {
+	public ItemLayoutUI(String name, String imgSrc, int price, String prevClass) {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -123,7 +123,7 @@ public class ItemLayoutUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Image");
-		lblNewLabel.setBounds(24, 24, 256, 203);
+		lblNewLabel.setBounds(34, 25, 256, 203);
 		contentPane.add(lblNewLabel);
 		lblNewLabel.setText("");
 		lblNewLabel.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(imgSrc)));
@@ -151,6 +151,32 @@ public class ItemLayoutUI extends JFrame {
 		btnAddToCart.setBackground(Color.WHITE);
 		btnAddToCart.setBounds(302, 78, 127, 38);
 		contentPane.add(btnAddToCart);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-arrow-left-64.png")));
+		btnNewButton_1.setBounds(0, 0, 46, 38);
+		contentPane.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				switch(prevClass) {
+					case "pants":{
+						PantsUI frame = new PantsUI();
+		                frame.setVisible(true);
+						break;
+					}
+					case "shirts":{
+						ShirtUI frame = new ShirtUI();
+		                frame.setVisible(true);
+						break;
+					}
+					case "outerwear":{
+						OuterwearUI frame = new OuterwearUI();
+						frame.setVisible(true);
+						break;
+					}
+				}
+			}
+		});
 		
 		
 	}

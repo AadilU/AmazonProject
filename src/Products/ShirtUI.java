@@ -4,10 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -29,6 +31,7 @@ public class ShirtUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	Shirts p;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -123,7 +126,20 @@ public class ShirtUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 57, 110, 95);
+		list.add("Adidas");
+		list.add("Kirklands");
+		list.add("Levis");
+		list.add("Goodwill Pants");
 		
+		list.addItemListener(this);
+		contentPane.add(list);
+		
+		lblNewLabel = new JLabel("Test Label");
+		lblNewLabel.setBounds(139, 17, 61, 16);
+		contentPane.add(lblNewLabel);
 		
 		
 		runProgram();
@@ -131,5 +147,36 @@ public class ShirtUI extends JFrame {
 
 	private void runProgram() {
 		Shirts newShirt = new Shirts();
+	}
+	public void itemStateChanged(ItemEvent e) {      
+        List l = (List)e.getSource();
+        switch(l.getSelectedItem())
+        {
+	        case "Adidas":
+	        {
+	        	getPants(0);
+	        	break;
+	        	
+	        }
+	        case "Kirkland":
+	        {
+	        	getPants(1);
+	        	break;
+	        }
+	        case "Levis":
+	        {
+	        	getPants(2);
+	        	break;
+	        }
+	        case "Goodwill Pants":{
+	        	getPants(3);
+	        	break;
+	        }
+        }
+     }  
+	private void getPants(int x) {
+		p = new Shirts();
+		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"shirts");
+	    frame.setVisible(true);
 	}
 }

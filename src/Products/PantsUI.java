@@ -31,8 +31,7 @@ import javax.swing.JLabel;
 public class PantsUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
-	Pants p = new Pants();
-	Panel ipa = new Panel();
+	Pants p;
 	JLabel lblNewLabel;
 
 	/**
@@ -146,8 +145,6 @@ public class PantsUI extends JFrame implements ItemListener{
 		lblNewLabel = new JLabel("Test Label");
 		lblNewLabel.setBounds(139, 17, 61, 16);
 		contentPane.add(lblNewLabel);
-		
-		runProgram();
 	}
 
 	 public void itemStateChanged(ItemEvent e) {      
@@ -156,19 +153,29 @@ public class PantsUI extends JFrame implements ItemListener{
 	        {
 		        case "Adidas":
 		        {
-		        	ItemLayoutUI frame = new ItemLayoutUI("Adidas Pants","/Images/didaspants.png", 2);
-	                frame.setVisible(true);
+		        	getPants(0);
+		        	break;
+		        	
 		        }
-		        
+		        case "Kirkland":
+		        {
+		        	getPants(1);
+		        	break;
+		        }
 		        case "Levis":
 		        {
-		        	ItemLayoutUI frame = new ItemLayoutUI("Levis","/Images/levipants.png", 2);
-	                frame.setVisible(true);
+		        	getPants(2);
+		        	break;
+		        }
+		        case "Goodwill Pants":{
+		        	getPants(3);
+		        	break;
 		        }
 	        }
 	     }  
-	private void runProgram() {
-		Pants newPants = new Pants();
-		
+	private void getPants(int x) {
+		p = new Pants();
+		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"pants");
+        frame.setVisible(true);
 	}
 }

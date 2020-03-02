@@ -14,10 +14,10 @@ abstract class Product {
 	
 	public Product(String name, boolean onSale, int price, String imagePath)
 	{
-		imgn = imagePath;
 		this.name = name;
 		this.onSale = onSale;
 		this.price = price;
+		this.imgn = imagePath;
 		initImage(imagePath);
 	}
 	
