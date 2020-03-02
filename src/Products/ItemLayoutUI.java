@@ -30,7 +30,7 @@ public class ItemLayoutUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ItemLayoutUI frame = new ItemLayoutUI();
+					ItemLayoutUI frame = new ItemLayoutUI("", "", 0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,10 +42,11 @@ public class ItemLayoutUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ItemLayoutUI() {
+	public ItemLayoutUI(String name, String imgSrc, int price) {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(Color.BLACK);
@@ -61,7 +62,7 @@ public class ItemLayoutUI extends JFrame {
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 MainUI frame = new MainUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		mnNewMenu.add(mntmHome);
@@ -72,7 +73,7 @@ public class ItemLayoutUI extends JFrame {
 		mntmShirts.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 ShirtUI frame = new ShirtUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		
@@ -81,7 +82,7 @@ public class ItemLayoutUI extends JFrame {
 		mntmPants.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 PantsUI frame = new PantsUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		
@@ -90,7 +91,7 @@ public class ItemLayoutUI extends JFrame {
 		mntmOuterwear.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 OuterwearUI frame = new OuterwearUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		
@@ -111,7 +112,7 @@ public class ItemLayoutUI extends JFrame {
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 Cart frame = new Cart();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		menuBar.add(btnCart);
@@ -124,16 +125,20 @@ public class ItemLayoutUI extends JFrame {
 		JLabel lblNewLabel = new JLabel("Image");
 		lblNewLabel.setBounds(24, 24, 256, 203);
 		contentPane.add(lblNewLabel);
+		lblNewLabel.setText("");
+		lblNewLabel.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(imgSrc)));
 		
 		JLabel lblItemName = new JLabel("Item Name");
 		lblItemName.setFont(new Font("Kohinoor Devanagari", Font.BOLD, 15));
 		lblItemName.setBounds(292, 25, 152, 16);
 		contentPane.add(lblItemName);
+		lblItemName.setText(name);
 		
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
 		lblPrice.setBounds(292, 50, 61, 16);
 		contentPane.add(lblPrice);
+		lblPrice.setText(Integer.toString(price));
 		
 		JButton btnAddToCart = new JButton("Add to Cart");
 		btnAddToCart.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -146,5 +151,7 @@ public class ItemLayoutUI extends JFrame {
 		btnAddToCart.setBackground(Color.WHITE);
 		btnAddToCart.setBounds(302, 78, 127, 38);
 		contentPane.add(btnAddToCart);
+		
+		
 	}
 }

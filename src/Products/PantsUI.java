@@ -3,6 +3,7 @@ package Products;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -25,12 +26,14 @@ import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
 import java.awt.Panel;
+import javax.swing.JLabel;
 
 public class PantsUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
 	Pants p = new Pants();
-	Panel ipa = new Panel();;
+	Panel ipa = new Panel();
+	JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -140,8 +143,9 @@ public class PantsUI extends JFrame implements ItemListener{
 		list.addItemListener(this);
 		contentPane.add(list);
 		
-		ipa.setBounds(277, 57, 110, 89);
-		contentPane.add(ipa);
+		lblNewLabel = new JLabel("Test Label");
+		lblNewLabel.setBounds(139, 17, 61, 16);
+		contentPane.add(lblNewLabel);
 		
 		runProgram();
 	}
@@ -152,8 +156,14 @@ public class PantsUI extends JFrame implements ItemListener{
 	        {
 		        case "Adidas":
 		        {
-		        	AdidasImageLoad a = new AdidasImageLoad(p.PantsList.get(0).getImageName());
-		        	ipa.add(a);
+		        	ItemLayoutUI frame = new ItemLayoutUI("Adidas Pants","/Images/didaspants.png", 2);
+	                frame.setVisible(true);
+		        }
+		        
+		        case "Levis":
+		        {
+		        	ItemLayoutUI frame = new ItemLayoutUI("Levis","/Images/levipants.png", 2);
+	                frame.setVisible(true);
 		        }
 	        }
 	     }  
