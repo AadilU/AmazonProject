@@ -112,6 +112,11 @@ public class MainUI extends JFrame {
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
+		public void actionPerformed(ActionEvent e) {
+            Search frame = new Search();
+            frame.setVisible(true);;
+        }
+	});
 		
 		JButton btnCart = new JButton("Cart");
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
