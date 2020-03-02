@@ -10,9 +10,11 @@ abstract class Product {
 	public boolean onSale;
 	public int price;
 	public Image c;
+	public String imgn;
 	
 	public Product(String name, boolean onSale, int price, String imagePath)
 	{
+		imgn = imagePath;
 		this.name = name;
 		this.onSale = onSale;
 		this.price = price;
@@ -43,6 +45,11 @@ abstract class Product {
 	public Image getImage()
 	{
 		return c;
+	}
+	
+	public String getImageName()
+	{
+		return imgn;
 	}
 	
 	abstract void setDimensions(String size);

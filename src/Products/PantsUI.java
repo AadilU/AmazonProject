@@ -2,8 +2,11 @@ package Products;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,10 +24,13 @@ import javax.swing.JList;
 import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
+import java.awt.Panel;
 
-public class PantsUI extends JFrame {
+public class PantsUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
+	Pants p = new Pants();
+	Panel ipa = new Panel();;
 
 	/**
 	 * Launch the application.
@@ -123,10 +129,34 @@ public class PantsUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 57, 110, 95);
+		list.add("Adidas");
+		list.add("Kirklands");
+		list.add("Levis");
+		list.add("Goodwill Pants");
+		
+		list.addItemListener(this);
+		contentPane.add(list);
+		
+		ipa.setBounds(277, 57, 110, 89);
+		contentPane.add(ipa);
 		
 		runProgram();
 	}
 
+	 public void itemStateChanged(ItemEvent e) {      
+	        List l = (List)e.getSource();
+	        switch(l.getSelectedItem())
+	        {
+		        case "Adidas":
+		        {
+		        	AdidasImageLoad a = new AdidasImageLoad(p.PantsList.get(0).getImageName());
+		        	ipa.add(a);
+		        }
+	        }
+	     }  
 	private void runProgram() {
 		Pants newPants = new Pants();
 		
