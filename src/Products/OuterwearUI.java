@@ -134,7 +134,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		List list = new List();
 		list.setMultipleMode(false);
 		list.setBounds(10, 57, 110, 95);
-		list.add("Supreme");
+		list.add("Adidas");
 		list.add("Kirklands");
 		list.add("Guess");
 		list.add("Goodwill Outerwear");
@@ -153,7 +153,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
         List l = (List)e.getSource();
         switch(l.getSelectedItem())
         {
-	        case "Supreme":
+	        case "Adidas":
 	        {
 	        	getOuterwear(0);
 	        	break;

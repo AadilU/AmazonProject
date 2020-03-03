@@ -31,12 +31,13 @@ public class MainUI extends JFrame{
 	private JMenuItem mntmHome;
 	private JMenuItem mntmShirts;
 	private JPanel categoryExplorerPanel;
-	private JLabel lblImage;
+	private JButton lblImage;
 	private JButton forwardButton;
 	private JMenuItem mntmPants;
 	private JMenuItem mntmOuterwear;
+	private int itemNumber;
 	String[] iList = { 
-			"/Images/ckshirt",
+			"/Images/ckshirt.png",
 			"/Images/didasjacket.png",
 			"/Images/didaspants.png",
 			"/Images/goodwilljacket.png",
@@ -46,7 +47,7 @@ public class MainUI extends JFrame{
 			"/Images/kirk jacket.png",
 			"/Images/kirkpant.png",
 			"/Images/levipants.png",
-			"/Images.suuwoopreme.png"
+			"/Images/suuwoopreme.png"
 	};
 
 	/**
@@ -164,8 +165,60 @@ public class MainUI extends JFrame{
 		categoryExplorerPanel.setBounds(5, 5, 440, 107);
 		contentPane.add(categoryExplorerPanel);
 		
-		lblImage = new JLabel();
+		lblImage = new JButton();
 		categoryExplorerPanel.add(lblImage);
+		lblImage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				switch(itemNumber) {
+					case 0:{
+						getShirts(2);
+						break;
+					}
+					case 1:{
+						getOuterwear(0);
+						break;
+					}
+					case 2:{
+						getPants(0);
+						break;
+					}
+					case 3:{
+						getOuterwear(3);
+						break;
+					}
+					case 4:{
+						getOuterwear(2);
+						break;
+					}
+					case 5:{
+						getPants(3);
+						break;
+					}
+					case 6:{
+						getShirts(3);
+						break;
+					}
+					case 7:{
+						getOuterwear(1);
+						break;
+					}
+					case 8:{
+						getPants(1);
+						break;
+					}
+					case 9:{
+						getPants(2);
+						break;
+					}
+					case 10:{
+						getShirts(0);
+						break;
+					}
+
+				}
+			}	
+		});
 		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
 		
 		JLabel lblNewLabel = new JLabel("Ad");
@@ -186,7 +239,9 @@ public class MainUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
+				
 				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x])));
+				itemNumber = x;
 				x++;
 				if(x >= 10)
 				{
@@ -196,5 +251,23 @@ public class MainUI extends JFrame{
 		});
 		
 		t.start();
+	}
+	private void getShirts(int x) {
+		Shirts p = new Shirts();
+		dispose();
+		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"home");
+	    frame.setVisible(true);
+	}
+	private void getOuterwear(int x) {
+		Outerwear p = new Outerwear();
+		dispose();
+		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"home");
+	    frame.setVisible(true);
+	}
+	private void getPants(int x) {
+		Pants p = new Pants();
+		dispose();
+		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"home");
+        frame.setVisible(true);
 	}
 }

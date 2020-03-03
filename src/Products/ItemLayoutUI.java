@@ -186,6 +186,12 @@ public class ItemLayoutUI extends JFrame {
 						frame.setVisible(true);
 						break;
 					}
+					case "home":{
+						dispose();
+						MainUI frame = new MainUI();
+						frame.setVisible(true);
+						break;
+					}
 				}
 			}
 		});
