@@ -2,7 +2,9 @@ package Products;
 
 import java.util.*;
 
-public class Search {
+import javax.swing.JFrame;
+
+public class Search extends JFrame{
 	public static void main() { 
 	Scanner scan = new Scanner(System.in); 
 	String user_input; 
@@ -12,7 +14,7 @@ public class Search {
 	user_input = scan.nextLine(); 
 	for (int x = 0; x < 4; x++) 
 	{ 
-		if (user_input.equals(strarray[x])) 
+		if (user_input.equals(strarray[x]));
 			
 	}
 	}

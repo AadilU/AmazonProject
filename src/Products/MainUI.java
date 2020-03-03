@@ -20,9 +20,11 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.*;
 
-public class MainUI extends JFrame {
+public class MainUI extends JFrame{
 
+	private Timer t;
 	private JPanel contentPane;
 	private JTextField txtSearch;
 	private JMenu mnNewMenu;
@@ -33,6 +35,19 @@ public class MainUI extends JFrame {
 	private JButton forwardButton;
 	private JMenuItem mntmPants;
 	private JMenuItem mntmOuterwear;
+	int[] x = {0};				String[] iList = { 
+			"/Images/ckshirt",
+			"/Images/didasjacket.png",
+			"/Images/didaspants.png",
+			"/Images/goodwilljacket.png",
+			"/Images/guessjacxket.png",
+			"/Images/GWPants.png",
+			"/Images/gwshirts.png",
+			"/Images/kirk jacket.png",
+			"/Images/kirkpant.png",
+			"/Images/levipants.png",
+			"/Images.suuwoopreme.png"
+	};
 
 	/**
 	 * Launch the application.
@@ -112,11 +127,6 @@ public class MainUI extends JFrame {
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
-		public void actionPerformed(ActionEvent e) {
-            Search frame = new Search();
-            frame.setVisible(true);;
-        }
-	});
 		
 		JButton btnCart = new JButton("Cart");
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
@@ -150,6 +160,7 @@ public class MainUI extends JFrame {
 		
 		lblImage = new JLabel("Image");
 		categoryExplorerPanel.add(lblImage);
+		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
 		
 		JLabel lblNewLabel = new JLabel("Ad");
 		lblNewLabel.setBounds(6, 112, 142, 123);
@@ -163,5 +174,20 @@ public class MainUI extends JFrame {
 		lblItem.setHorizontalAlignment(SwingConstants.CENTER);
 		lblItem.setBounds(303, 112, 142, 123);
 		contentPane.add(lblItem);
+		
+		t = new Timer(500, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				setImage(x[0]);
+				x[0] += 1;
+			}
+		});
+	}
+	
+	public void setImage(int x)
+	{
+		
 	}
 }

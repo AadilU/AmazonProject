@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,7 +25,7 @@ import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
 
-public class ShirtUI extends JFrame {
+public class ShirtUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
 
@@ -137,10 +138,6 @@ public class ShirtUI extends JFrame {
 		list.addItemListener(this);
 		contentPane.add(list);
 		
-		lblNewLabel = new JLabel("Test Label");
-		lblNewLabel.setBounds(139, 17, 61, 16);
-		contentPane.add(lblNewLabel);
-		
 		
 		runProgram();
 	}
@@ -154,29 +151,29 @@ public class ShirtUI extends JFrame {
         {
 	        case "Adidas":
 	        {
-	        	getPants(0);
+	        	getShirts(0);
 	        	break;
 	        	
 	        }
 	        case "Kirkland":
 	        {
-	        	getPants(1);
+	        	getShirts(1);
 	        	break;
 	        }
 	        case "Levis":
 	        {
-	        	getPants(2);
+	        	getShirts(2);
 	        	break;
 	        }
 	        case "Goodwill Pants":{
-	        	getPants(3);
+	        	getShirts(3);
 	        	break;
 	        }
         }
      }  
-	private void getPants(int x) {
+	private void getShirts(int x) {
 		p = new Shirts();
-		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"shirts");
+		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
 	    frame.setVisible(true);
 	}
 }
