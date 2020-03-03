@@ -35,8 +35,8 @@ public class MainUI extends JFrame{
 	private JButton forwardButton;
 	private JMenuItem mntmPants;
 	private JMenuItem mntmOuterwear;
-	int[] x = {0};		
-    String[] iList = { 
+	private int[] x = {1};
+	String[] iList = { 
 			"/Images/ckshirt",
 			"/Images/didasjacket.png",
 			"/Images/didaspants.png",
@@ -159,7 +159,7 @@ public class MainUI extends JFrame{
 		categoryExplorerPanel.setBounds(5, 5, 440, 107);
 		contentPane.add(categoryExplorerPanel);
 		
-		lblImage = new JLabel("Image");
+		lblImage = new JLabel();
 		categoryExplorerPanel.add(lblImage);
 		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
 		
@@ -176,23 +176,43 @@ public class MainUI extends JFrame{
 		lblItem.setBounds(303, 112, 142, 123);
 		contentPane.add(lblItem);
 		
-		t = new Timer(500, new ActionListener() {
-			
+		backButton.addActionListener(new ActionListener() {
+			int x1 = 1;
+			public void actionPerformed(ActionEvent e) {
+				x1++;
+				if(x1 >= 10)
+				{
+					x1 = 1;
+				}
+                lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x1])));
+            }
+		});
+		
+		forwardButton.addActionListener(new ActionListener() {
+			int y = 10;
+			public void actionPerformed(ActionEvent e) {
+				y -= 1;
+				if(y < 2)
+				{
+					y = 10;
+				}
+				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[y])));
+			}
+		});
+		
+		t = new Timer(3000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				setImage(x[0]);
-				x[0] += 1;
-				if(x[0] > iList.length)
+				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x[0]])));
+				x[0]++;
+				if(x[0] >= 10)
 				{
-					x[0] = 0;
+					x[0] = 1;
 				}
 			}
 		});
-	}
-	
-	public void setImage(int x)
-	{
-		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x])));
+		
+		t.start();
 	}
 }

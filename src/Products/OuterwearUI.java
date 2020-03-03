@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,13 +24,14 @@ import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
 
-public class OuterwearUI extends JFrame {
+public class OuterwearUI extends JFrame implements ItemListener {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
+	Outerwear p;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -123,11 +126,53 @@ public class OuterwearUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 57, 110, 95);
+		list.add("Supreme");
+		list.add("Kirklands");
+		list.add("Guess");
+		list.add("Goodwill Outerwear");
+		
+		list.addItemListener(this);
+		contentPane.add(list);
+		
 		runProgram();
 	}
 
 	private void runProgram() {
 		Outerwear newOuterwear = new Outerwear();
 		
+	}
+	public void itemStateChanged(ItemEvent e) {      
+        List l = (List)e.getSource();
+        switch(l.getSelectedItem())
+        {
+	        case "Supreme":
+	        {
+	        	getOuterwear(0);
+	        	break;
+	        	
+	        }
+	        case "Kirklands":
+	        {
+	        	getOuterwear(1);
+	        	break;
+	        }
+	        case "Guess":
+	        {
+	        	getOuterwear(2);
+	        	break;
+	        }
+	        case "Goodwill Outerwear":{
+	        	getOuterwear(3);
+	        	break;
+	        }
+        }
+     }  
+	private void getOuterwear(int x) {
+		p = new Outerwear();
+		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
+	    frame.setVisible(true);
 	}
 }

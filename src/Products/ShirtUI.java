@@ -130,10 +130,10 @@ public class ShirtUI extends JFrame implements ItemListener{
 		List list = new List();
 		list.setMultipleMode(false);
 		list.setBounds(10, 57, 110, 95);
-		list.add("Adidas");
+		list.add("Supreme");
 		list.add("Kirklands");
-		list.add("Levis");
-		list.add("Goodwill Pants");
+		list.add("Kalvin Clein");
+		list.add("Goodwill Shirts");
 		
 		list.addItemListener(this);
 		contentPane.add(list);
@@ -149,23 +149,23 @@ public class ShirtUI extends JFrame implements ItemListener{
         List l = (List)e.getSource();
         switch(l.getSelectedItem())
         {
-	        case "Adidas":
+	        case "Supreme":
 	        {
 	        	getShirts(0);
 	        	break;
 	        	
 	        }
-	        case "Kirkland":
+	        case "Kirklands":
 	        {
 	        	getShirts(1);
 	        	break;
 	        }
-	        case "Levis":
+	        case "Kalvin Clein":
 	        {
 	        	getShirts(2);
 	        	break;
 	        }
-	        case "Goodwill Pants":{
+	        case "Goodwill Shirts":{
 	        	getShirts(3);
 	        	break;
 	        }

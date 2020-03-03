@@ -157,7 +157,7 @@ public class PantsUI extends JFrame implements ItemListener{
 		        	break;
 		        	
 		        }
-		        case "Kirkland":
+		        case "Kirklands":
 		        {
 		        	getPants(1);
 		        	break;
