@@ -36,6 +36,7 @@ public class MainUI extends JFrame{
 	private JMenuItem mntmPants;
 	private JMenuItem mntmOuterwear;
 	private int itemNumber;
+	int[] x = {1};
 	String[] iList = { 
 			"/Images/ckshirt.png",
 			"/Images/didasjacket.png",
@@ -162,26 +163,24 @@ public class MainUI extends JFrame{
 		contentPane.add(backButton);
 		
 		backButton.addActionListener(new ActionListener() {
-			int x1 = 1;
 			public void actionPerformed(ActionEvent e) {
-				x1++;
-				if(x1 >= 10)
+				if(x[0] >= 10)
 				{
-					x1 = 1;
+					x[0] = 1;
 				}
-	            lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x1])));
+				x[0]++;
+	            lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x[0]])));
 	        }
 		});
 		
 		forwardButton.addActionListener(new ActionListener() {
-			int y = 10;
 			public void actionPerformed(ActionEvent e) {
-				y -= 1;
-				if(y < 2)
+				if(x[0] < 2)
 				{
-					y = 10;
+					x[0] = 10;
 				}
-				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[y])));
+				x[0]--;
+				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x[0]])));
 			}
 		});
 		
