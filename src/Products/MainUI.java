@@ -176,15 +176,15 @@ public class MainUI extends JFrame{
 		contentPane.add(lblItem);
 		
 		t = new Timer(500, new ActionListener() {
-		int x1 = 1;
+		int x = 1;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x1])));
-				x1++;
-				if(x1 >= 10)
+				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x])));
+				x++;
+				if(x >= 10)
 				{
-					x1 = 1;
+					x = 1;
 				}
 			}
 		});
