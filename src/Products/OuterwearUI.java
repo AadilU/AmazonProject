@@ -67,7 +67,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 MainUI frame = new MainUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		mnNewMenu.add(mntmHome);
@@ -78,7 +79,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		mntmShirts.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 ShirtUI frame = new ShirtUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -87,7 +89,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		mntmPants.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 PantsUI frame = new PantsUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -96,7 +99,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		mntmOuterwear.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 OuterwearUI frame = new OuterwearUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -116,7 +120,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 Cart frame = new Cart();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		menuBar.add(btnCart);
@@ -129,7 +134,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		List list = new List();
 		list.setMultipleMode(false);
 		list.setBounds(10, 57, 110, 95);
-		list.add("Supreme");
+		list.add("Adidas");
 		list.add("Kirklands");
 		list.add("Guess");
 		list.add("Goodwill Outerwear");
@@ -148,7 +153,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
         List l = (List)e.getSource();
         switch(l.getSelectedItem())
         {
-	        case "Supreme":
+	        case "Adidas":
 	        {
 	        	getOuterwear(0);
 	        	break;
@@ -172,6 +177,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
      }  
 	private void getOuterwear(int x) {
 		p = new Outerwear();
+		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
 	    frame.setVisible(true);
 	}

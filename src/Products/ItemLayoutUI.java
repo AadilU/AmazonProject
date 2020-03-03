@@ -63,6 +63,7 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 MainUI frame = new MainUI();
                 frame.setVisible(true);
+                dispose();
             }
 		});
 		mnNewMenu.add(mntmHome);
@@ -74,6 +75,7 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 ShirtUI frame = new ShirtUI();
                 frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -83,6 +85,7 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 PantsUI frame = new PantsUI();
                 frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -92,6 +95,7 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 OuterwearUI frame = new OuterwearUI();
                 frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -138,7 +142,12 @@ public class ItemLayoutUI extends JFrame {
 		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
 		lblPrice.setBounds(292, 50, 61, 16);
 		contentPane.add(lblPrice);
-		lblPrice.setText(Integer.toString(price));
+		if(price != 0) {
+			lblPrice.setText(Integer.toString(price));
+		}else {
+			lblPrice.setText("FREE");
+		}
+		
 		
 		JButton btnAddToCart = new JButton("Add to Cart");
 		btnAddToCart.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -160,17 +169,26 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				switch(prevClass) {
 					case "pants":{
+						dispose();
 						PantsUI frame = new PantsUI();
 		                frame.setVisible(true);
 						break;
 					}
 					case "shirts":{
+						dispose();
 						ShirtUI frame = new ShirtUI();
 		                frame.setVisible(true);
 						break;
 					}
 					case "outerwear":{
+						dispose();
 						OuterwearUI frame = new OuterwearUI();
+						frame.setVisible(true);
+						break;
+					}
+					case "home":{
+						dispose();
+						MainUI frame = new MainUI();
 						frame.setVisible(true);
 						break;
 					}

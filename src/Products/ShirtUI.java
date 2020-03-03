@@ -68,7 +68,8 @@ public class ShirtUI extends JFrame implements ItemListener{
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 MainUI frame = new MainUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		mnNewMenu.add(mntmHome);
@@ -79,7 +80,8 @@ public class ShirtUI extends JFrame implements ItemListener{
 		mntmShirts.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 ShirtUI frame = new ShirtUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -88,7 +90,8 @@ public class ShirtUI extends JFrame implements ItemListener{
 		mntmPants.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 PantsUI frame = new PantsUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -97,7 +100,8 @@ public class ShirtUI extends JFrame implements ItemListener{
 		mntmOuterwear.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 OuterwearUI frame = new OuterwearUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -117,7 +121,8 @@ public class ShirtUI extends JFrame implements ItemListener{
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 Cart frame = new Cart();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		menuBar.add(btnCart);
@@ -173,6 +178,7 @@ public class ShirtUI extends JFrame implements ItemListener{
      }  
 	private void getShirts(int x) {
 		p = new Shirts();
+		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
 	    frame.setVisible(true);
 	}
