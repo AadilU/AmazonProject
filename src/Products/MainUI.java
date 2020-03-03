@@ -35,7 +35,8 @@ public class MainUI extends JFrame{
 	private JButton forwardButton;
 	private JMenuItem mntmPants;
 	private JMenuItem mntmOuterwear;
-	int[] x = {0};				String[] iList = { 
+	int[] x = {0};		
+    String[] iList = { 
 			"/Images/ckshirt",
 			"/Images/didasjacket.png",
 			"/Images/didaspants.png",
@@ -182,12 +183,16 @@ public class MainUI extends JFrame{
 			{
 				setImage(x[0]);
 				x[0] += 1;
+				if(x[0] > iList.length)
+				{
+					x[0] = 0;
+				}
 			}
 		});
 	}
 	
 	public void setImage(int x)
 	{
-		
+		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x])));
 	}
 }
