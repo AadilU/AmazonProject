@@ -143,7 +143,7 @@ public class ItemLayoutUI extends JFrame {
 		lblPrice.setBounds(292, 50, 61, 16);
 		contentPane.add(lblPrice);
 		if(price != 0) {
-			lblPrice.setText(Integer.toString(price));
+			lblPrice.setText("$ " + Integer.toString(price));
 		}else {
 			lblPrice.setText("FREE");
 		}

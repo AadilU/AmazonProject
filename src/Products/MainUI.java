@@ -170,17 +170,19 @@ public class MainUI extends JFrame{
 				}
 				x[0]++;
 	            lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x[0]])));
+	            itemNumber = x[0];
 	        }
 		});
 		
 		forwardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(x[0] < 2)
+				if(x[0] < 1)
 				{
-					x[0] = 10;
+					x[0] = 11;
 				}
 				x[0]--;
 				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x[0]])));
+				itemNumber = x[0];
 			}
 		});
 		
