@@ -170,6 +170,7 @@ public class MainUI extends JFrame{
 					x1 = 1;
 				}
 	            lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[x1])));
+	            itemNumber = x1;
 	        }
 		});
 		
@@ -182,6 +183,7 @@ public class MainUI extends JFrame{
 					y = 10;
 				}
 				lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(iList[y])));
+				itemNumber = y;
 			}
 		});
 		
