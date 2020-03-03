@@ -86,7 +86,8 @@ public class MainUI extends JFrame{
 		mnNewMenu.add(mntmHome);
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                MainUI frame = new MainUI();
+				dispose();
+				MainUI frame = new MainUI();
                 frame.setVisible(true);;
             }
 		});
@@ -95,8 +96,10 @@ public class MainUI extends JFrame{
 		mnNewMenu.add(mntmShirts);
 		mntmShirts.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                ShirtUI frame = new ShirtUI();
-                frame.setVisible(true);;
+                dispose();
+				ShirtUI frame = new ShirtUI();
+                frame.setVisible(true);
+                
             }
 		});
 		
@@ -104,8 +107,9 @@ public class MainUI extends JFrame{
 		mnNewMenu.add(mntmPants);
 		mntmPants.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                PantsUI frame = new PantsUI();
-                frame.setVisible(true);;
+				dispose();
+				PantsUI frame = new PantsUI();
+                frame.setVisible(true);
             }
 		});
 		
@@ -113,7 +117,8 @@ public class MainUI extends JFrame{
 		mnNewMenu.add(mntmOuterwear);
 		mntmOuterwear.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                OuterwearUI frame = new OuterwearUI();
+				dispose();
+				OuterwearUI frame = new OuterwearUI();
                 frame.setVisible(true);;
             }
 		});
@@ -132,8 +137,9 @@ public class MainUI extends JFrame{
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                Cart frame = new Cart();
-                frame.setVisible(true);;
+				dispose();
+				Cart frame = new Cart();
+                frame.setVisible(true);
             }
 		});
 		menuBar.add(btnCart);
@@ -175,7 +181,7 @@ public class MainUI extends JFrame{
 		lblItem.setBounds(303, 112, 142, 123);
 		contentPane.add(lblItem);
 		
-		t = new Timer(500, new ActionListener() {
+		t = new Timer(3000, new ActionListener() {
 		int x = 1;
 			@Override
 			public void actionPerformed(ActionEvent e)
