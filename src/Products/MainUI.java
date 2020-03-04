@@ -130,10 +130,15 @@ public class MainUI extends JFrame{
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
-		menuBar.add(btnNewButton);
+		JButton btnSearchButton = new JButton("");
+		btnSearchButton.setBackground(Color.ORANGE);
+		btnSearchButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+            }
+		});
+		btnSearchButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
+		menuBar.add(btnSearchButton);
 		
 		JButton btnCart = new JButton("Cart");
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));

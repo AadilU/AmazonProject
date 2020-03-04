@@ -13,9 +13,9 @@ public class Pants{
 	
 	public void initList()
 	{
-		PantsList.add(new Clothing("Adidas", false, 60, "/Images/didaspants.png"));
-		PantsList.add(new Clothing("Kirklands", true, 10, "/Images/kirkpant.png"));
-		PantsList.add(new Clothing("Levis", false, 50, "/Images/levipants.png"));
+		PantsList.add(new Clothing("Adidas Pants", false, 60, "/Images/didaspants.png"));
+		PantsList.add(new Clothing("Kirklands Pants", true, 10, "/Images/kirkpant.png"));
+		PantsList.add(new Clothing("Levis Pants", false, 50, "/Images/levipants.png"));
 		PantsList.add(new Clothing("Goodwill Pants", true, 0, "/Images/GWPants.png"));
 	}
 }
