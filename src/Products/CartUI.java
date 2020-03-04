@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,7 +27,7 @@ public class CartUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtSearch;
 	private JMenuItem mntmHome;
-
+	protected LinkedList<Item> list;
 	/**
 	 * Launch the application.
 	 */
@@ -140,7 +141,9 @@ public class CartUI extends JFrame {
 		textPane.setBounds(6, 26, 412, 201);
 		contentPane.add(textPane);
 		
-		
+		Cart newCart = new Cart();
+		newCart.retrieveItems();
+		System.out.println(newCart.retrieveItems());
 		
 	}
 }
