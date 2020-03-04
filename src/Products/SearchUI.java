@@ -129,7 +129,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                Cart frame = new Cart();
+                CartUI frame = new CartUI();
                 frame.setVisible(true);
                 dispose();
             }

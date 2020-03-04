@@ -147,7 +147,7 @@ public class MainUI extends JFrame{
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Cart frame = new Cart();
+				CartUI frame = new CartUI();
                 frame.setVisible(true);
             }
 		});

@@ -21,7 +21,7 @@ import javax.swing.JList;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
 
-public class Cart extends JFrame {
+public class CartUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtSearch;
@@ -34,7 +34,7 @@ public class Cart extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Cart frame = new Cart();
+					CartUI frame = new CartUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,7 @@ public class Cart extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Cart() {
+	public CartUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -57,7 +57,7 @@ public class Cart extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
-		mnNewMenu.setIcon(new ImageIcon(Cart.class.getResource("/Images/icons8-menu-rounded-30.png")));
+		mnNewMenu.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmItem1;
@@ -124,7 +124,7 @@ public class Cart extends JFrame {
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                Cart frame = new Cart();
+                CartUI frame = new CartUI();
                 frame.setVisible(true);
                 dispose();
             }

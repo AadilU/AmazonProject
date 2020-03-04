@@ -54,7 +54,7 @@ public class ItemLayoutUI extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
-		mnNewMenu.setIcon(new ImageIcon(Cart.class.getResource("/Images/icons8-menu-rounded-30.png")));
+		mnNewMenu.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmHome;
@@ -122,7 +122,7 @@ public class ItemLayoutUI extends JFrame {
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-                Cart frame = new Cart();
+                CartUI frame = new CartUI();
                 frame.setVisible(true);
                 dispose();
             }
