@@ -153,5 +153,73 @@ public class SearchUI extends JFrame implements ItemListener{
 	}
 	public void itemStateChanged(ItemEvent e) { 
 		List l = (List)e.getSource();
+		switch(l.getSelectedItem()) {
+			case "SUPREME Shirt":{
+				getShirts(0);
+	        	break;
+			}
+			case "Kirklands Shirt":{
+				getShirts(1);
+	        	break;
+			}
+			case "Kalvin Clein Shirt":{
+				getShirts(2);
+	        	break;
+			}
+			case "Goodwill Shirts":{
+				getShirts(3);
+	        	break;	
+			}
+			case "Adidas Pants":{
+				getPants(0);
+				break;
+			}
+			case "Kirklands Pants":{
+				getPants(1);
+				break;
+			}
+			case "Levis Pants":{
+				getPants(2);
+				break;
+			}
+			case "Goodwill Pants":{
+				getPants(3);
+				break;
+			}
+			case "Adidas Jacket":{
+				getOuterwear(0);
+				break;
+			}
+			case "Kirklands Jacket":{
+				getOuterwear(1);
+				break;
+			}
+			case "Guess Jacket":{
+				getOuterwear(2);
+				break;			
+			}
+			case "Goodwill Jacket":{
+				getOuterwear(3);
+				break;
+			}
+		}
+	}
+	private void getShirts(int x) {
+		Shirts p = new Shirts();
+		
+		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
+	    frame.setVisible(true);
+	}
+	private void getPants(int x) {
+		Pants p = new Pants();
+		
+		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"pants");
+        frame.setVisible(true);
+	}
+	private void getOuterwear(int x) {
+		Outerwear p = new Outerwear();
+		
+		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
+	    frame.setVisible(true);
 	}
 }
