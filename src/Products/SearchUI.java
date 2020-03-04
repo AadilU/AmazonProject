@@ -3,26 +3,34 @@ package Products;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextPane;
 import javax.swing.UIManager;
-import java.awt.Font;
 
-public class ItemLayoutUI extends JFrame {
+public class SearchUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
-
+	private JTextField txtSearch;
+	private JMenuItem mntmHome;
+	private ArrayList queryResults;
 	/**
 	 * Launch the application.
 	 */
@@ -30,7 +38,8 @@ public class ItemLayoutUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ItemLayoutUI frame = new ItemLayoutUI("", "", 0,"");
+					ArrayList results = new ArrayList();
+					SearchUI frame = new SearchUI(results);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,11 +51,10 @@ public class ItemLayoutUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ItemLayoutUI(String name, String imgSrc, int price, String prevClass) {
+	public SearchUI(ArrayList results) {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setForeground(Color.BLACK);
@@ -54,10 +62,10 @@ public class ItemLayoutUI extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
-		mnNewMenu.setIcon(new ImageIcon(Cart.class.getResource("/Images/icons8-menu-rounded-30.png")));
+		mnNewMenu.setIcon(new ImageIcon(SearchUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmHome;
+		JMenuItem mntmItem1;
 		mntmHome = new JMenuItem("Home");
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +75,6 @@ public class ItemLayoutUI extends JFrame {
             }
 		});
 		mnNewMenu.add(mntmHome);
-		
 		
 		JMenuItem mntmShirts = new JMenuItem("Shirts");
 		mnNewMenu.add(mntmShirts);
@@ -101,7 +108,7 @@ public class ItemLayoutUI extends JFrame {
 		
 		
 		
-		JTextField txtSearch = new JTextField();
+		txtSearch = new JTextField();
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
@@ -134,76 +141,17 @@ public class ItemLayoutUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Image");
-		lblNewLabel.setBounds(34, 25, 256, 203);
-		contentPane.add(lblNewLabel);
-		lblNewLabel.setText("");
-		lblNewLabel.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(imgSrc)));
 		
-		JLabel lblItemName = new JLabel("Item Name");
-		lblItemName.setFont(new Font("Kohinoor Devanagari", Font.BOLD, 15));
-		lblItemName.setBounds(292, 25, 152, 16);
-		contentPane.add(lblItemName);
-		lblItemName.setText(name);
-		
-		JLabel lblPrice = new JLabel("Price");
-		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
-		lblPrice.setBounds(292, 50, 61, 16);
-		contentPane.add(lblPrice);
-		if(price != 0) {
-			lblPrice.setText("$ " + Integer.toString(price));
-		}else {
-			lblPrice.setText("FREE");
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 10, 392, 198);
+		for(int x = 0; x < results.size(); x++) {
+			list.add((String) results.get(x));
 		}
-		
-		
-		JButton btnAddToCart = new JButton("Add to Cart");
-		btnAddToCart.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnAddToCart.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-buy-26.png")));
-		btnAddToCart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAddToCart.setForeground(Color.BLACK);
-		btnAddToCart.setBackground(Color.WHITE);
-		btnAddToCart.setBounds(302, 78, 127, 38);
-		contentPane.add(btnAddToCart);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-arrow-left-64.png")));
-		btnNewButton_1.setBounds(0, 0, 46, 38);
-		contentPane.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switch(prevClass) {
-					case "pants":{
-						dispose();
-						PantsUI frame = new PantsUI();
-		                frame.setVisible(true);
-						break;
-					}
-					case "shirts":{
-						dispose();
-						ShirtUI frame = new ShirtUI();
-		                frame.setVisible(true);
-						break;
-					}
-					case "outerwear":{
-						dispose();
-						OuterwearUI frame = new OuterwearUI();
-						frame.setVisible(true);
-						break;
-					}
-					case "home":{
-						dispose();
-						MainUI frame = new MainUI();
-						frame.setVisible(true);
-						break;
-					}
-				}
-			}
-		});
-		
-		
+		list.addItemListener(this);
+		contentPane.add(list);
+	}
+	public void itemStateChanged(ItemEvent e) { 
+		List l = (List)e.getSource();
 	}
 }

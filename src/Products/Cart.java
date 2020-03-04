@@ -110,6 +110,13 @@ public class Cart extends JFrame {
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(Color.ORANGE);
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SearchQuery newQuery = new SearchQuery(txtSearch.getText());
+				
+            }
+		});
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
 		

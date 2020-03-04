@@ -113,6 +113,13 @@ public class ShirtUI extends JFrame implements ItemListener{
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(Color.ORANGE);
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SearchQuery newQuery = new SearchQuery(txtSearch.getText());
+				
+            }
+		});
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
 		
@@ -134,7 +141,7 @@ public class ShirtUI extends JFrame implements ItemListener{
 		
 		List list = new List();
 		list.setMultipleMode(false);
-		list.setBounds(10, 57, 110, 95);
+		list.setBounds(10, 23, 239, 185);
 		list.add("Supreme");
 		list.add("Kirklands");
 		list.add("Kalvin Clein");

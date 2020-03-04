@@ -134,6 +134,8 @@ public class MainUI extends JFrame{
 		btnSearchButton.setBackground(Color.ORANGE);
 		btnSearchButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SearchQuery newQuery = new SearchQuery(txtSearch.getText());
 				
             }
 		});

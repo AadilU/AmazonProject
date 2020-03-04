@@ -32,7 +32,6 @@ public class PantsUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
 	Pants p;
-	JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -117,6 +116,13 @@ public class PantsUI extends JFrame implements ItemListener{
 		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBackground(Color.ORANGE);
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SearchQuery newQuery = new SearchQuery(txtSearch.getText());
+				
+            }
+		});
 		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
 		menuBar.add(btnNewButton);
 		
@@ -138,7 +144,7 @@ public class PantsUI extends JFrame implements ItemListener{
 		
 		List list = new List();
 		list.setMultipleMode(false);
-		list.setBounds(10, 57, 110, 95);
+		list.setBounds(10, 23, 239, 185);
 		list.add("Adidas");
 		list.add("Kirklands");
 		list.add("Levis");
@@ -146,10 +152,6 @@ public class PantsUI extends JFrame implements ItemListener{
 		
 		list.addItemListener(this);
 		contentPane.add(list);
-		
-		lblNewLabel = new JLabel("Test Label");
-		lblNewLabel.setBounds(139, 17, 61, 16);
-		contentPane.add(lblNewLabel);
 	}
 
 	 public void itemStateChanged(ItemEvent e) {      
