@@ -206,19 +206,19 @@ public class SearchUI extends JFrame implements ItemListener{
 	}
 	private void getShirts(int x) {
 		Shirts p = new Shirts();
-		
+		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
 	    frame.setVisible(true);
 	}
 	private void getPants(int x) {
 		Pants p = new Pants();
-		
+		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"pants");
         frame.setVisible(true);
 	}
 	private void getOuterwear(int x) {
 		Outerwear p = new Outerwear();
-		
+		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
 	    frame.setVisible(true);
 	}
