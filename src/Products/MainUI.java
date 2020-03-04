@@ -152,6 +152,7 @@ public class MainUI extends JFrame{
 		contentPane.setLayout(null);
 		
 		forwardButton = new JButton("");
+		forwardButton.setBackground(Color.WHITE);
 		forwardButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-arrow-right-64.png")));
 		forwardButton.setBounds(372, 5, 73, 107);
 		contentPane.add(forwardButton);
