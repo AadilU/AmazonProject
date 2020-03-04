@@ -117,6 +117,7 @@ public class ItemLayoutUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
                 Cart frame = new Cart();
                 frame.setVisible(true);
+                dispose();
             }
 		});
 		menuBar.add(btnCart);

@@ -65,7 +65,8 @@ public class Cart extends JFrame {
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 MainUI frame = new MainUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		mnNewMenu.add(mntmHome);
@@ -75,7 +76,8 @@ public class Cart extends JFrame {
 		mntmShirts.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 ShirtUI frame = new ShirtUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -84,7 +86,8 @@ public class Cart extends JFrame {
 		mntmPants.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 PantsUI frame = new PantsUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -93,7 +96,8 @@ public class Cart extends JFrame {
 		mntmOuterwear.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 OuterwearUI frame = new OuterwearUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		
@@ -114,7 +118,8 @@ public class Cart extends JFrame {
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
                 Cart frame = new Cart();
-                frame.setVisible(true);;
+                frame.setVisible(true);
+                dispose();
             }
 		});
 		menuBar.add(btnCart);
