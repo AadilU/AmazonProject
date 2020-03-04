@@ -162,6 +162,9 @@ public class ItemLayoutUI extends JFrame {
 		btnAddToCart.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-buy-26.png")));
 		btnAddToCart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Cart newCartItem = new Cart();
+				btnAddToCart.setIcon(null);
+				btnAddToCart.setText("Added!");
 			}
 		});
 		btnAddToCart.setForeground(Color.BLACK);
