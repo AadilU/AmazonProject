@@ -61,6 +61,7 @@ public class MainUI extends JFrame{
 			"/Images/levipants.png",
 			"/Images/suuwoopreme.png"
 	};
+	private JLabel lblMostPopular;
 
 	/**
 	 * Launch the application.
@@ -287,7 +288,7 @@ public class MainUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnDealButton.setBounds(17, 116, 135, 100);
+		btnDealButton.setBounds(15, 128, 135, 100);
 		contentPane.add(btnDealButton);
 		
 		JButton btnClothingButton = new JButton("");
@@ -296,13 +297,19 @@ public class MainUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnClothingButton.setBounds(158, 115, 135, 100);
+		btnClothingButton.setBounds(162, 128, 135, 100);
 		contentPane.add(btnClothingButton);
 		
 		JButton btnDealDayButton = new JButton("");
 		btnDealDayButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/didaspants.png")));
-		btnDealDayButton.setBounds(301, 115, 135, 100);
+		btnDealDayButton.setBounds(310, 128, 135, 100);
 		contentPane.add(btnDealDayButton);
+		
+		lblMostPopular = new JLabel("~~~Most Popular~~~");
+		lblMostPopular.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMostPopular.setForeground(Color.WHITE);
+		lblMostPopular.setBounds(162, 112, 135, 16);
+		contentPane.add(lblMostPopular);
 		
 		t = new Timer(3000, new ActionListener() {
 		int x = 1;
