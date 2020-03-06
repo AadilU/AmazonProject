@@ -7,4 +7,10 @@ public class Item {
 		this.itemName = itemName;
 		this.price = price;
 	}
+	protected String getName() {
+		return itemName;
+	}
+	protected int getPrice() {
+		return price;
+	}
 }

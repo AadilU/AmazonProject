@@ -138,16 +138,34 @@ public class CartUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(6, 26, 412, 201);
-		contentPane.add(textPane);
-		
 		Cart newCart = Cart.getInstance();
-		newCart.retrieveItems();
+		LinkedList<Item> newLinkedList = new LinkedList<Item>();
+		newLinkedList = newCart.retrieveItems();
 		System.out.println(newCart.retrieveItems());
 		
 		List list = new List();
 		list.setMultipleMode(false);
-		list.setBounds(10, 23, 239, 185);
+		list.setBounds(10, 23, 355, 181);
+		
+		List priceList = new List();
+		priceList.setEnabled(false);
+		int totalPrice = 0;
+		
+		for(int x = 0; x < newLinkedList.size(); x++) {
+			list.add(newLinkedList.get(x).getName());
+			priceList.add("$" + Integer.toString(newLinkedList.get(x).getPrice()));
+			totalPrice += newLinkedList.get(x).getPrice();
+		}
+		contentPane.add(list);
+		
+		priceList.setBounds(371, 23, 61, 181);
+		contentPane.add(priceList);
+		
+		JLabel lblTotal = new JLabel("Total:");
+		lblTotal.setBounds(330, 210, 102, 16);
+		contentPane.add(lblTotal);
+		lblTotal.setText("Total: $" + Integer.toString(totalPrice));
+		
+		
 	}
 }
