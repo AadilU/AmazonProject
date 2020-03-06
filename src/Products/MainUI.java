@@ -272,6 +272,26 @@ public class MainUI extends JFrame{
 		});
 		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
 		
+		JButton btnNewButton = new JButton("Best Deals");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(17, 116, 135, 100);
+		contentPane.add(btnNewButton);
+		
+		JButton btnClothingButton = new JButton("Clothing");
+		btnClothingButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnClothingButton.setBounds(158, 115, 135, 100);
+		contentPane.add(btnClothingButton);
+		
+		JButton btnNewButton_1_1 = new JButton("Deal of the Day");
+		btnNewButton_1_1.setBounds(301, 115, 135, 100);
+		contentPane.add(btnNewButton_1_1);
+		
 		t = new Timer(3000, new ActionListener() {
 		int x = 1;
 			@Override
