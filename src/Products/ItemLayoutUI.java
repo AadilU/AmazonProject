@@ -146,12 +146,14 @@ public class ItemLayoutUI extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(imgSrc)));
 		
 		JLabel lblItemName = new JLabel("Item Name");
+		lblItemName.setForeground(Color.WHITE);
 		lblItemName.setFont(new Font("Kohinoor Devanagari", Font.BOLD, 15));
 		lblItemName.setBounds(292, 25, 152, 16);
 		contentPane.add(lblItemName);
 		lblItemName.setText(name);
 		
 		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setForeground(Color.LIGHT_GRAY);
 		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
 		lblPrice.setBounds(292, 50, 61, 16);
 		contentPane.add(lblPrice);
