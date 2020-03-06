@@ -54,7 +54,6 @@ public class CartUI extends JFrame {
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setOpaque(false);
 		menuBar.setForeground(Color.BLACK);
 		menuBar.setBackground(Color.DARK_GRAY);
 		setJMenuBar(menuBar);
@@ -107,11 +106,14 @@ public class CartUI extends JFrame {
 		
 		
 		txtSearch = new JTextField();
+		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
+		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setOpaque(true);
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -124,6 +126,7 @@ public class CartUI extends JFrame {
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
+		btnCart.setOpaque(true);
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -134,7 +137,7 @@ public class CartUI extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

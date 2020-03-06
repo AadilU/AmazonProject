@@ -80,8 +80,6 @@ public class MainUI extends JFrame{
         } catch (UnsupportedLookAndFeelException ex) {
         }
 		UIManager.put("MenuBar.background", Color.DARK_GRAY);
-		
-		setBackground(Color.WHITE);
 		setBackground(Color.decode("#2c3e50"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
