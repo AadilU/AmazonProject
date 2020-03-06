@@ -56,7 +56,7 @@ public class CartUI extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(new EmptyBorder(0, 0, 0, 0));
 		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(Color.DARK_GRAY);
+		menuBar.setBackground(new Color(44, 62, 80));
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
@@ -138,7 +138,7 @@ public class CartUI extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBackground(new Color(44, 62, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -167,6 +167,7 @@ public class CartUI extends JFrame {
 		contentPane.add(priceList);
 		
 		JLabel lblTotal = new JLabel("Total:");
+		lblTotal.setForeground(Color.WHITE);
 		lblTotal.setBounds(330, 210, 102, 16);
 		contentPane.add(lblTotal);
 		lblTotal.setText("Total: $" + Integer.toString(totalPrice));

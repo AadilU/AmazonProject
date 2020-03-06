@@ -68,9 +68,8 @@ public class SearchUI extends JFrame implements ItemListener{
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(new EmptyBorder(0, 0, 0, 0));
-		menuBar.setOpaque(false);
 		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(Color.DARK_GRAY);
+		menuBar.setBackground(new Color(44, 62, 80));
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
@@ -151,7 +150,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBackground(new Color(44, 62, 80));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
