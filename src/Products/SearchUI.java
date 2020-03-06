@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class SearchUI extends JFrame implements ItemListener{
 
@@ -52,6 +53,15 @@ public class SearchUI extends JFrame implements ItemListener{
 	 * Create the frame.
 	 */
 	public SearchUI(ArrayList results) {
+		try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+        } catch (InstantiationException ex) {
+        } catch (IllegalAccessException ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
+        }
+		UIManager.put("MenuBar.background", Color.DARK_GRAY);
+		setBackground(Color.decode("#2c3e50"));
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

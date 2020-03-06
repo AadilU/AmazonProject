@@ -108,6 +108,7 @@ public class ShirtUI extends JFrame implements ItemListener{
 		
 		
 		JTextField txtSearch = new JTextField();
+		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
 		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);

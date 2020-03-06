@@ -139,6 +139,7 @@ public class MainUI extends JFrame{
 		});
 		
 		txtSearch = new JTextField();
+		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
 		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
