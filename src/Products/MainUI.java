@@ -72,6 +72,7 @@ public class MainUI extends JFrame{
 	 * Create the frame.
 	 */
 	public MainUI() {
+<<<<<<< HEAD
 		try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
@@ -82,6 +83,8 @@ public class MainUI extends JFrame{
 		UIManager.put("MenuBar.background", Color.DARK_GRAY);
 		
 		setBackground(Color.WHITE);
+		setBackground(Color.decode("#2c3e50"));
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -103,7 +106,7 @@ public class MainUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				MainUI frame = new MainUI();
-                frame.setVisible(true);;
+                frame.setVisible(true);
             }
 		});
 		
