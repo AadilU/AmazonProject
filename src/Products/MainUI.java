@@ -22,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 
 public class MainUI extends JFrame{
 
@@ -154,7 +155,7 @@ public class MainUI extends JFrame{
 				
             }
 		});
-		btnSearchButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
+		btnSearchButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-32.png")));
 		menuBar.add(btnSearchButton);
 		
 		JButton btnCart = new JButton("Cart");

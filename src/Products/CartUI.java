@@ -123,7 +123,7 @@ public class CartUI extends JFrame {
 				
             }
 		});
-		btnNewButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-search-more-30.png")));
+		btnNewButton.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-search-32.png")));
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
@@ -138,7 +138,7 @@ public class CartUI extends JFrame {
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(44, 62, 80));
+		contentPane.setBackground(new Color(34, 47, 62));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
