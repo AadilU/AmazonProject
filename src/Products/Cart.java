@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Cart {
-	LinkedList<Item> cartList;
+	private static Cart single_instance = null;
+	private static LinkedList<Item> cartList = new LinkedList<Item>();
+	
 	public Cart() {
 		
-	}
-	public Cart(String itemName, int price) {
-		cartList = new LinkedList<Item>();
-		addItem(itemName, price);
 	}
 	public void addItem(String itemName, int price) {
 		cartList.add(new Item(itemName, price));
@@ -18,4 +16,11 @@ public class Cart {
 	public LinkedList retrieveItems() {
 		return cartList;
 	}
+	public static Cart getInstance() 
+    { 
+        if (single_instance == null) 
+            single_instance = new Cart(); 
+  
+        return single_instance; 
+    } 
 }

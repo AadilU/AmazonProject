@@ -3,6 +3,7 @@ package Products;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
@@ -141,9 +142,12 @@ public class CartUI extends JFrame {
 		textPane.setBounds(6, 26, 412, 201);
 		contentPane.add(textPane);
 		
-		Cart newCart = new Cart();
+		Cart newCart = Cart.getInstance();
 		newCart.retrieveItems();
 		System.out.println(newCart.retrieveItems());
 		
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 23, 239, 185);
 	}
 }
