@@ -169,7 +169,7 @@ public class MainUI extends JFrame{
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(44, 62, 80));
+		contentPane.setBackground(new Color(34, 47, 62));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -211,7 +211,7 @@ public class MainUI extends JFrame{
 		});
 		
 		categoryExplorerPanel = new JPanel();
-		categoryExplorerPanel.setBackground(new Color(44, 62, 80));
+		categoryExplorerPanel.setBackground(new Color(34, 47, 62));
 		categoryExplorerPanel.setBounds(5, 5, 440, 107);
 		contentPane.add(categoryExplorerPanel);
 		
