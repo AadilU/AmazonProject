@@ -72,7 +72,6 @@ public class MainUI extends JFrame{
 	 * Create the frame.
 	 */
 	public MainUI() {
-<<<<<<< HEAD
 		try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
