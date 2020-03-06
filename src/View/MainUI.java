@@ -32,6 +32,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.awt.Font;
 
 public class MainUI extends JFrame{
 
@@ -306,9 +307,10 @@ public class MainUI extends JFrame{
 		contentPane.add(btnDealDayButton);
 		
 		lblMostPopular = new JLabel("~~~Most Popular~~~");
+		lblMostPopular.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblMostPopular.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMostPopular.setForeground(Color.WHITE);
-		lblMostPopular.setBounds(162, 112, 135, 16);
+		lblMostPopular.setBounds(162, 110, 135, 16);
 		contentPane.add(lblMostPopular);
 		
 		t = new Timer(3000, new ActionListener() {
