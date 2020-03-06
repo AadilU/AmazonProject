@@ -2,6 +2,7 @@ package Products;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.MenuBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -71,16 +72,28 @@ public class MainUI extends JFrame{
 	 * Create the frame.
 	 */
 	public MainUI() {
+		try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException ex) {
+        } catch (InstantiationException ex) {
+        } catch (IllegalAccessException ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
+        }
+		UIManager.put("MenuBar.background", Color.DARK_GRAY);
+		
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(new Color(47, 79, 79));
+		menuBar.setBorder(new EmptyBorder(0, 0, 0, 0));
+		menuBar.setForeground(Color.DARK_GRAY);
+		menuBar.setBackground(Color.DARK_GRAY);
+		
 		setJMenuBar(menuBar);
 		
 		mnNewMenu = new JMenu("");
+		mnNewMenu.setBackground(Color.WHITE);
 		mnNewMenu.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
@@ -126,11 +139,13 @@ public class MainUI extends JFrame{
 		});
 		
 		txtSearch = new JTextField();
+		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
 		
 		JButton btnSearchButton = new JButton("");
+		btnSearchButton.setOpaque(true);
 		btnSearchButton.setBackground(Color.ORANGE);
 		btnSearchButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -143,6 +158,7 @@ public class MainUI extends JFrame{
 		menuBar.add(btnSearchButton);
 		
 		JButton btnCart = new JButton("Cart");
+		btnCart.setOpaque(true);
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -153,7 +169,7 @@ public class MainUI extends JFrame{
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -195,6 +211,7 @@ public class MainUI extends JFrame{
 		});
 		
 		categoryExplorerPanel = new JPanel();
+		categoryExplorerPanel.setBackground(Color.DARK_GRAY);
 		categoryExplorerPanel.setBounds(5, 5, 440, 107);
 		contentPane.add(categoryExplorerPanel);
 		
@@ -253,19 +270,6 @@ public class MainUI extends JFrame{
 			}	
 		});
 		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
-		
-		JLabel lblNewLabel = new JLabel("Ad");
-		lblNewLabel.setBounds(6, 112, 142, 123);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblAd = new JLabel("Ad");
-		lblAd.setBounds(159, 112, 142, 123);
-		contentPane.add(lblAd);
-		
-		JLabel lblItem = new JLabel("Ad");
-		lblItem.setHorizontalAlignment(SwingConstants.CENTER);
-		lblItem.setBounds(303, 112, 142, 123);
-		contentPane.add(lblItem);
 		
 		t = new Timer(3000, new ActionListener() {
 		int x = 1;

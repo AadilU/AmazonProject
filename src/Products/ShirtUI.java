@@ -50,13 +50,14 @@ public class ShirtUI extends JFrame implements ItemListener{
 	 * Create the frame.
 	 */
 	public ShirtUI() {
-		setBackground(Color.WHITE);
+		setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(new EmptyBorder(0, 0, 0, 0));
 		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(new Color(47, 79, 79));
+		menuBar.setBackground(Color.DARK_GRAY);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
@@ -107,11 +108,13 @@ public class ShirtUI extends JFrame implements ItemListener{
 		
 		
 		JTextField txtSearch = new JTextField();
+		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setOpaque(true);
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -124,6 +127,7 @@ public class ShirtUI extends JFrame implements ItemListener{
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
+		btnCart.setOpaque(true);
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -134,7 +138,7 @@ public class ShirtUI extends JFrame implements ItemListener{
 		});
 		menuBar.add(btnCart);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

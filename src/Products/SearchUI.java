@@ -57,8 +57,9 @@ public class SearchUI extends JFrame implements ItemListener{
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setOpaque(false);
 		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(new Color(47, 79, 79));
+		menuBar.setBackground(Color.DARK_GRAY);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
@@ -109,6 +110,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		
 		
 		txtSearch = new JTextField();
+		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);

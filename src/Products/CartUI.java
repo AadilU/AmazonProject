@@ -54,8 +54,9 @@ public class CartUI extends JFrame {
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setOpaque(false);
 		menuBar.setForeground(Color.BLACK);
-		menuBar.setBackground(new Color(47, 79, 79));
+		menuBar.setBackground(Color.DARK_GRAY);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
