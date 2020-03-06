@@ -1,4 +1,4 @@
-package Products;
+package Control;
 
 public class Item {
 	private String itemName;
@@ -7,10 +7,10 @@ public class Item {
 		this.itemName = itemName;
 		this.price = price;
 	}
-	protected String getName() {
+	public String getName() {
 		return itemName;
 	}
-	protected int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 }

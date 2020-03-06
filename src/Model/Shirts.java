@@ -1,9 +1,9 @@
-package Products;
+package Model;
 
 import java.util.LinkedList;
 
 public class Shirts{
-	static LinkedList<Clothing> ShirtsList;
+	public static LinkedList<Clothing> ShirtsList;
 	
 	public Shirts()
 	{

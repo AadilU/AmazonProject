@@ -1,4 +1,7 @@
-package Products;
+package Model;
+
+import Control.*;
+
 
 public class Clothing extends Product{
 	public String size;

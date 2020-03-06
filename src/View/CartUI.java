@@ -1,28 +1,40 @@
-package Products;
+package View;
 
 import java.awt.BorderLayout;
+import Model.*;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.UIManager;
-import java.awt.Font;
 
-public class ItemLayoutUI extends JFrame {
+import Control.Cart;
+import Control.Item;
+import Control.SearchQuery;
+
+import javax.swing.JList;
+import javax.swing.JTextPane;
+import javax.swing.UIManager;
+import Control.*;
+public class CartUI extends JFrame {
 
 	private JPanel contentPane;
-
+	private JTextField txtSearch;
+	private JMenuItem mntmHome;
+	protected LinkedList<Item> list;
 	/**
 	 * Launch the application.
 	 */
@@ -30,7 +42,7 @@ public class ItemLayoutUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ItemLayoutUI frame = new ItemLayoutUI("", "", 0,"");
+					CartUI frame = new CartUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,11 +54,10 @@ public class ItemLayoutUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ItemLayoutUI(String name, String imgSrc, int price, String prevClass) {
+	public CartUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -58,7 +69,7 @@ public class ItemLayoutUI extends JFrame {
 		mnNewMenu.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmHome;
+		JMenuItem mntmItem1;
 		mntmHome = new JMenuItem("Home");
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -68,7 +79,6 @@ public class ItemLayoutUI extends JFrame {
             }
 		});
 		mnNewMenu.add(mntmHome);
-		
 		
 		JMenuItem mntmShirts = new JMenuItem("Shirts");
 		mnNewMenu.add(mntmShirts);
@@ -102,7 +112,7 @@ public class ItemLayoutUI extends JFrame {
 		
 		
 		
-		JTextField txtSearch = new JTextField();
+		txtSearch = new JTextField();
 		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
 		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
@@ -119,7 +129,7 @@ public class ItemLayoutUI extends JFrame {
 				
             }
 		});
-		btnNewButton.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-search-32.png")));
+		btnNewButton.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-search-32.png")));
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
@@ -139,83 +149,34 @@ public class ItemLayoutUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Image");
-		lblNewLabel.setBounds(34, 25, 256, 203);
-		contentPane.add(lblNewLabel);
-		lblNewLabel.setText("");
-		lblNewLabel.setIcon(new ImageIcon(ItemLayoutUI.class.getResource(imgSrc)));
+		Cart newCart = Cart.getInstance();
+		LinkedList<Item> newLinkedList = new LinkedList<Item>();
+		newLinkedList = newCart.retrieveItems();
+		System.out.println(newCart.retrieveItems());
 		
-		JLabel lblItemName = new JLabel("Item Name");
-		lblItemName.setForeground(Color.WHITE);
-		lblItemName.setFont(new Font("Kohinoor Devanagari", Font.BOLD, 15));
-		lblItemName.setBounds(292, 25, 152, 16);
-		contentPane.add(lblItemName);
-		lblItemName.setText(name);
+		List list = new List();
+		list.setMultipleMode(false);
+		list.setBounds(10, 23, 355, 181);
 		
-		JLabel lblPrice = new JLabel("Price");
-		lblPrice.setForeground(Color.LIGHT_GRAY);
-		lblPrice.setFont(new Font("Iowan Old Style", Font.ITALIC, 10));
-		lblPrice.setBounds(292, 50, 61, 16);
-		contentPane.add(lblPrice);
-		if(price != 0) {
-			lblPrice.setText("$ " + Integer.toString(price));
-		}else {
-			lblPrice.setText("FREE");
+		List priceList = new List();
+		priceList.setEnabled(false);
+		int totalPrice = 0;
+		
+		for(int x = 0; x < newLinkedList.size(); x++) {
+			list.add(newLinkedList.get(x).getName());
+			priceList.add("$" + Integer.toString(newLinkedList.get(x).getPrice()));
+			totalPrice += newLinkedList.get(x).getPrice();
 		}
+		contentPane.add(list);
 		
+		priceList.setBounds(371, 23, 61, 181);
+		contentPane.add(priceList);
 		
-		JButton btnAddToCart = new JButton("Add to Cart");
-		btnAddToCart.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnAddToCart.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-buy-26.png")));
-		btnAddToCart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Cart newCartItem = Cart.getInstance();
-				newCartItem.addItem(name, price);
-				
-				btnAddToCart.setIcon(null);
-				btnAddToCart.setText("Added!");
-			}
-		});
-		btnAddToCart.setForeground(Color.BLACK);
-		btnAddToCart.setBackground(Color.WHITE);
-		btnAddToCart.setBounds(290, 78, 139, 43);
-		contentPane.add(btnAddToCart);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/icons8-arrow-left-64.png")));
-		btnNewButton_1.setBounds(0, 0, 46, 38);
-		contentPane.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switch(prevClass) {
-					case "pants":{
-						dispose();
-						PantsUI frame = new PantsUI();
-		                frame.setVisible(true);
-						break;
-					}
-					case "shirts":{
-						dispose();
-						ShirtUI frame = new ShirtUI();
-		                frame.setVisible(true);
-						break;
-					}
-					case "outerwear":{
-						dispose();
-						OuterwearUI frame = new OuterwearUI();
-						frame.setVisible(true);
-						break;
-					}
-					case "home":{
-						dispose();
-						MainUI frame = new MainUI();
-						frame.setVisible(true);
-						break;
-					}
-				}
-			}
-		});
+		JLabel lblTotal = new JLabel("Total:");
+		lblTotal.setForeground(Color.WHITE);
+		lblTotal.setBounds(330, 210, 102, 16);
+		contentPane.add(lblTotal);
+		lblTotal.setText("Total: $" + Integer.toString(totalPrice));
 		
 		
 	}

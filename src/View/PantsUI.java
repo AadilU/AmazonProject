@@ -1,37 +1,42 @@
-package Products;
+package View;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.List;
+import java.awt.Image;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JList;
-import javax.swing.JTextPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
-public class SearchUI extends JFrame implements ItemListener{
+import Control.SearchQuery;
+import Model.Pants;
+
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import java.awt.Color;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.UIManager;
+import javax.swing.JScrollBar;
+import java.awt.List;
+import java.awt.Panel;
+import javax.swing.JLabel;
+
+public class PantsUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
-	private JTextField txtSearch;
-	private JMenuItem mntmHome;
-	private ArrayList queryResults;
+	Pants p;
+
 	/**
 	 * Launch the application.
 	 */
@@ -39,8 +44,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ArrayList results = new ArrayList();
-					SearchUI frame = new SearchUI(results);
+					PantsUI frame = new PantsUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,16 +56,7 @@ public class SearchUI extends JFrame implements ItemListener{
 	/**
 	 * Create the frame.
 	 */
-	public SearchUI(ArrayList results) {
-		try {
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        } catch (ClassNotFoundException ex) {
-        } catch (InstantiationException ex) {
-        } catch (IllegalAccessException ex) {
-        } catch (UnsupportedLookAndFeelException ex) {
-        }
-		UIManager.put("MenuBar.background", Color.DARK_GRAY);
-		setBackground(Color.decode("#2c3e50"));
+	public PantsUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -73,11 +68,10 @@ public class SearchUI extends JFrame implements ItemListener{
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("");
-		mnNewMenu.setBackground(Color.DARK_GRAY);
-		mnNewMenu.setIcon(new ImageIcon(SearchUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
+		mnNewMenu.setIcon(new ImageIcon(CartUI.class.getResource("/Images/icons8-menu-rounded-30.png")));
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmItem1;
+		JMenuItem mntmHome;
 		mntmHome = new JMenuItem("Home");
 		mntmHome.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -87,6 +81,7 @@ public class SearchUI extends JFrame implements ItemListener{
             }
 		});
 		mnNewMenu.add(mntmHome);
+		
 		
 		JMenuItem mntmShirts = new JMenuItem("Shirts");
 		mnNewMenu.add(mntmShirts);
@@ -119,8 +114,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		});
 		
 		
-		
-		txtSearch = new JTextField();
+		JTextField txtSearch = new JTextField();
 		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
 		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
@@ -128,6 +122,7 @@ public class SearchUI extends JFrame implements ItemListener{
 		txtSearch.setColumns(10);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setOpaque(true);
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -136,10 +131,11 @@ public class SearchUI extends JFrame implements ItemListener{
 				
             }
 		});
-		btnNewButton.setIcon(new ImageIcon(SearchUI.class.getResource("/Images/icons8-search-32.png")));
+		btnNewButton.setIcon(new ImageIcon(PantsUI.class.getResource("/Images/icons8-search-32.png")));
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
+		btnCart.setOpaque(true);
 		btnCart.setIcon(new ImageIcon(MainUI.class.getResource("/Images/icons8-shopping-cart-32.png")));
 		btnCart.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -155,85 +151,48 @@ public class SearchUI extends JFrame implements ItemListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
 		List list = new List();
 		list.setMultipleMode(false);
-		list.setBounds(10, 10, 392, 198);
-		for(int x = 0; x < results.size(); x++) {
-			list.add((String) results.get(x));
-		}
+		list.setBounds(10, 23, 239, 185);
+		list.add("Adidas");
+		list.add("Kirklands");
+		list.add("Levis");
+		list.add("Goodwill Pants");
+		
 		list.addItemListener(this);
 		contentPane.add(list);
 	}
-	public void itemStateChanged(ItemEvent e) { 
-		List l = (List)e.getSource();
-		switch(l.getSelectedItem()) {
-			case "SUPREME Shirt":{
-				getShirts(0);
-	        	break;
-			}
-			case "Kirklands Shirt":{
-				getShirts(1);
-	        	break;
-			}
-			case "Kalvin Clein Shirt":{
-				getShirts(2);
-	        	break;
-			}
-			case "Goodwill Shirts":{
-				getShirts(3);
-	        	break;	
-			}
-			case "Adidas Pants":{
-				getPants(0);
-				break;
-			}
-			case "Kirklands Pants":{
-				getPants(1);
-				break;
-			}
-			case "Levis Pants":{
-				getPants(2);
-				break;
-			}
-			case "Goodwill Pants":{
-				getPants(3);
-				break;
-			}
-			case "Adidas Jacket":{
-				getOuterwear(0);
-				break;
-			}
-			case "Kirklands Jacket":{
-				getOuterwear(1);
-				break;
-			}
-			case "Guess Jacket":{
-				getOuterwear(2);
-				break;			
-			}
-			case "Goodwill Jacket":{
-				getOuterwear(3);
-				break;
-			}
-		}
-	}
-	private void getShirts(int x) {
-		Shirts p = new Shirts();
-		dispose();
-		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
-	    frame.setVisible(true);
-	}
+
+	 public void itemStateChanged(ItemEvent e) {      
+	        List l = (List)e.getSource();
+	        switch(l.getSelectedItem())
+	        {
+		        case "Adidas":
+		        {
+		        	getPants(0);
+		        	break;
+		        	
+		        }
+		        case "Kirklands":
+		        {
+		        	getPants(1);
+		        	break;
+		        }
+		        case "Levis":
+		        {
+		        	getPants(2);
+		        	break;
+		        }
+		        case "Goodwill Pants":{
+		        	getPants(3);
+		        	break;
+		        }
+	        }
+	     }  
 	private void getPants(int x) {
-		Pants p = new Pants();
+		p = new Pants();
 		dispose();
 		ItemLayoutUI frame = new ItemLayoutUI(p.PantsList.get(x).getName(), p.PantsList.get(x).getImageName(), p.PantsList.get(x).getPrice(),"pants");
         frame.setVisible(true);
-	}
-	private void getOuterwear(int x) {
-		Outerwear p = new Outerwear();
-		dispose();
-		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
-	    frame.setVisible(true);
 	}
 }

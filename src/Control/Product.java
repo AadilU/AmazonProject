@@ -1,10 +1,10 @@
-package Products;
+package Control;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-abstract class Product {
+public abstract class Product {
 	
 	public String name;
 	public boolean onSale;
@@ -52,5 +52,5 @@ abstract class Product {
 		return imgn;
 	}
 	
-	abstract void setDimensions(String size);
+	public abstract void setDimensions(String size);
 }

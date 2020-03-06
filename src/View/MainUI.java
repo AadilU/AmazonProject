@@ -1,4 +1,7 @@
-package Products;
+package View;
+
+import Model.*;
+import Control.*;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,6 +12,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Control.SearchQuery;
+import Model.Outerwear;
+import Model.Pants;
+import Model.Shirts;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -272,15 +281,17 @@ public class MainUI extends JFrame{
 		});
 		lblImage.setIcon(new ImageIcon(ItemLayoutUI.class.getResource("/Images/ckshirt.png")));
 		
-		JButton btnNewButton = new JButton("Best Deals");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnDealButton = new JButton("");
+		btnDealButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/guessjacxket.png")));
+		btnDealButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(17, 116, 135, 100);
-		contentPane.add(btnNewButton);
+		btnDealButton.setBounds(17, 116, 135, 100);
+		contentPane.add(btnDealButton);
 		
-		JButton btnClothingButton = new JButton("Clothing");
+		JButton btnClothingButton = new JButton("");
+		btnClothingButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/suuwoopreme.png")));
 		btnClothingButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -288,9 +299,10 @@ public class MainUI extends JFrame{
 		btnClothingButton.setBounds(158, 115, 135, 100);
 		contentPane.add(btnClothingButton);
 		
-		JButton btnNewButton_1_1 = new JButton("Deal of the Day");
-		btnNewButton_1_1.setBounds(301, 115, 135, 100);
-		contentPane.add(btnNewButton_1_1);
+		JButton btnDealDayButton = new JButton("");
+		btnDealDayButton.setIcon(new ImageIcon(MainUI.class.getResource("/Images/didaspants.png")));
+		btnDealDayButton.setBounds(301, 115, 135, 100);
+		contentPane.add(btnDealDayButton);
 		
 		t = new Timer(3000, new ActionListener() {
 		int x = 1;

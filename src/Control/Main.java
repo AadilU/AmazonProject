@@ -1,5 +1,8 @@
-package Products;
+package Control;
 
+import Model.Shirts;
+import View.*;
+import Control.*;
 public class Main {
 	
 	public static void main(String[] args)

@@ -1,4 +1,4 @@
-package Products;
+package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,10 +10,15 @@ import java.awt.event.ItemListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import Control.SearchQuery;
+import Model.Shirts;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
@@ -24,19 +29,19 @@ import javax.swing.UIManager;
 import javax.swing.JScrollBar;
 import java.awt.List;
 
-public class OuterwearUI extends JFrame implements ItemListener {
+public class ShirtUI extends JFrame implements ItemListener{
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	Outerwear p;
+	Shirts p;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					OuterwearUI frame = new OuterwearUI();
+					ShirtUI frame = new ShirtUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,8 +53,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 	/**
 	 * Create the frame.
 	 */
-	public OuterwearUI() {
-		setBackground(Color.WHITE);
+	public ShirtUI() {
+		setBackground(Color.DARK_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -107,8 +112,8 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		
 		
 		JTextField txtSearch = new JTextField();
-		txtSearch.setOpaque(true);
 		txtSearch.setBorder(new EmptyBorder(0, 0, 0, 0));
+		txtSearch.setOpaque(true);
 		txtSearch.setText("Search");
 		menuBar.add(txtSearch);
 		txtSearch.setColumns(10);
@@ -123,7 +128,7 @@ public class OuterwearUI extends JFrame implements ItemListener {
 				
             }
 		});
-		btnNewButton.setIcon(new ImageIcon(OuterwearUI.class.getResource("/Images/icons8-search-32.png")));
+		btnNewButton.setIcon(new ImageIcon(ShirtUI.class.getResource("/Images/icons8-search-32.png")));
 		menuBar.add(btnNewButton);
 		
 		JButton btnCart = new JButton("Cart");
@@ -146,51 +151,51 @@ public class OuterwearUI extends JFrame implements ItemListener {
 		List list = new List();
 		list.setMultipleMode(false);
 		list.setBounds(10, 23, 239, 185);
-		list.add("Adidas");
+		list.add("Supreme");
 		list.add("Kirklands");
-		list.add("Guess");
-		list.add("Goodwill Outerwear");
+		list.add("Kalvin Clein");
+		list.add("Goodwill Shirts");
 		
 		list.addItemListener(this);
 		contentPane.add(list);
+		
 		
 		runProgram();
 	}
 
 	private void runProgram() {
-		Outerwear newOuterwear = new Outerwear();
-		
+		Shirts newShirt = new Shirts();
 	}
 	public void itemStateChanged(ItemEvent e) {      
         List l = (List)e.getSource();
         switch(l.getSelectedItem())
         {
-	        case "Adidas":
+	        case "Supreme":
 	        {
-	        	getOuterwear(0);
+	        	getShirts(0);
 	        	break;
 	        	
 	        }
 	        case "Kirklands":
 	        {
-	        	getOuterwear(1);
+	        	getShirts(1);
 	        	break;
 	        }
-	        case "Guess":
+	        case "Kalvin Clein":
 	        {
-	        	getOuterwear(2);
+	        	getShirts(2);
 	        	break;
 	        }
-	        case "Goodwill Outerwear":{
-	        	getOuterwear(3);
+	        case "Goodwill Shirts":{
+	        	getShirts(3);
 	        	break;
 	        }
         }
      }  
-	private void getOuterwear(int x) {
-		p = new Outerwear();
+	private void getShirts(int x) {
+		p = new Shirts();
 		dispose();
-		ItemLayoutUI frame = new ItemLayoutUI(p.OuterwearList.get(x).getName(), p.OuterwearList.get(x).getImageName(), p.OuterwearList.get(x).getPrice(),"outerwear");
+		ItemLayoutUI frame = new ItemLayoutUI(p.ShirtsList.get(x).getName(), p.ShirtsList.get(x).getImageName(), p.ShirtsList.get(x).getPrice(),"shirts");
 	    frame.setVisible(true);
 	}
 }

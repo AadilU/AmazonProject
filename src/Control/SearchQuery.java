@@ -1,6 +1,11 @@
-package Products;
+package Control;
 
 import java.util.ArrayList;
+
+import Model.Outerwear;
+import Model.Pants;
+import Model.Shirts;
+import View.SearchUI;
 
 public class SearchQuery {
 	private String input;
